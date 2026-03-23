@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #06b6d4;
+  --color-dark: #0a0f1e;
+  --color-accent: #06b6d4;
+  
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-body antialiased selection:bg-primary/30 selection:text-white transition-colors duration-300;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-bold transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-1 active:scale-95;
+  }
+  .btn-outline {
+    @apply px-8 py-4 border-2 border-primary/20 bg-white/5 text-white rounded-xl font-bold transition-all duration-300 hover:border-primary/60 hover:bg-primary/10 hover:-translate-y-1 active:scale-95 text-center;
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.08];
+  }
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/40 bg-clip-text text-transparent;
+  }
+  .section-subtitle {
+    @apply text-gray-400 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-16;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  }
+}
