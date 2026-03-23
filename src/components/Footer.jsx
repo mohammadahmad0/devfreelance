@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CONTACT_INFO } from '../data/constants';
 
 const Footer = () => {
   return (
@@ -37,10 +38,20 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-white font-semibold mb-6">Social</h3>
             <ul className="space-y-4">
-              {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                    {item}
+              {[
+                { name: 'GitHub', link: CONTACT_INFO.github },
+                { name: 'LinkedIn', link: CONTACT_INFO.linkedin },
+                { name: 'Twitter', link: CONTACT_INFO.twitterLink },
+                { name: 'WhatsApp', link: CONTACT_INFO.whatsapp },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-primary transition-colors text-sm"
+                  >
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -49,9 +60,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="col-span-1">
-            <h3 className="text-white font-semibold mb-6">Location</h3>
+            <h3 className="text-white font-semibold mb-6">Contact</h3>
             <p className="text-gray-400 text-sm">Pakistan (Remote)</p>
-            <p className="text-gray-400 text-sm mt-4">mohammad@example.com</p>
+            <p className="text-gray-400 text-sm mt-4">{CONTACT_INFO.email}</p>
+            <p className="text-gray-400 text-sm mt-2">{CONTACT_INFO.phone}</p>
             <Link to="/contact" className="mt-8 inline-block text-primary hover:underline text-sm font-medium">
               Let's build something →
             </Link>

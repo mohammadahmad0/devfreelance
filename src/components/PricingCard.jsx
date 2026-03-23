@@ -38,8 +38,8 @@ const PricingCard = ({
         </span>
         <h3 className="text-2xl font-heading font-bold mb-4">{title}</h3>
         <div className="flex items-baseline gap-1">
-          <span className="text-5xl font-heading font-bold text-white">{price}</span>
-          <span className="text-gray-400 text-sm ml-1">/ {subtext}</span>
+          <span className="text-4xl lg:text-5xl font-heading font-bold text-white">{price}</span>
+          {subtext && <span className="text-gray-400 text-sm ml-1">/ {subtext}</span>}
         </div>
       </div>
 

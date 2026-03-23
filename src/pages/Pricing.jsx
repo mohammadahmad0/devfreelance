@@ -142,6 +142,47 @@ const Pricing = () => {
     }
   ];
 
+  const customPackages = [
+    {
+      title: 'AI & Machine Learning',
+      badge: 'Future-Proof Your Business',
+      price: 'Quote',
+      subtext: 'Starting from — Custom solution',
+      delivery: 'Project-based timeline',
+      ctaText: 'Get a Quote →',
+      ctaLink: '/contact',
+      isPopular: false,
+      features: [
+        { text: 'Custom AI Chatbots (OpenAI/Gemini)', included: true },
+        { text: 'AI Business Automation Workflow', included: true },
+        { text: 'Natural Language Processing (NLP)', included: true },
+        { text: 'Data Analysis & Predictive Models', included: true },
+        { text: 'Integration with Existing Apps', included: true },
+        { text: 'Custom LLM Implementation', included: true },
+        { text: 'Maintenance & Optimization', included: true },
+      ]
+    },
+    {
+      title: 'Startup Development',
+      badge: 'From Idea to Reality',
+      price: 'Quote',
+      subtext: 'Complete MVP/Product build',
+      delivery: 'Custom timeline',
+      ctaText: 'Start Building →',
+      ctaLink: '/contact',
+      isPopular: true,
+      features: [
+        { text: 'Market Research & Tech Planning', included: true },
+        { text: 'MVP Development (Web & App)', included: true },
+        { text: 'End-to-End Product Architecture', included: true },
+        { text: 'User Testing & Launch Support', included: true },
+        { text: 'Scalable cloud infrastructure', included: true },
+        { text: 'Investor-Ready Documentation', included: true },
+        { text: 'Ongoing Technical Advisory', included: true },
+      ]
+    }
+  ];
+
   const faqData = {
     web: [
       {
@@ -159,10 +200,6 @@ const Pricing = () => {
       {
         q: "What payment methods do you accept?",
         a: "I accept bank transfer, Wise, PayPal, and cryptocurrency. A 50% deposit is required to start, with the remaining 50% on delivery."
-      },
-      {
-        q: "How do revisions work?",
-        a: "Starter includes 2 revisions, Standard includes 5 revisions, and Premium includes unlimited revisions during the project timeline."
       }
     ],
     seo: [
@@ -177,10 +214,16 @@ const Pricing = () => {
       {
         q: "Will you provide monthly reports?",
         a: "Yes. Every SEO package includes detailed monthly (or bi-weekly for Standard+) reports showing keyword rankings, traffic growth, and completed tasks."
+      }
+    ],
+    custom: [
+      {
+        q: "How do you price AI & Custom Startup projects?",
+        a: "Due to the complexity of AI and custom product development, these are priced based on the scope, required compute resources, and project timeline. Contact me for a detailed quote after a discovery call."
       },
       {
-        q: "Can I cancel my SEO subscription anytime?",
-        a: "Yes, all SEO packages are month-to-month with no long-term contracts. You can cancel anytime with 7 days notice."
+        q: "Can you help with app design (UI/UX) as well?",
+        a: "Yes, for startup and custom projects, UI/UX design is part of the package. We handle everything from wireframes to high-fidelity prototypes."
       }
     ]
   };
@@ -227,6 +270,25 @@ const Pricing = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8 items-stretch pt-8">
             {webPackages.map((pkg, index) => (
+              <PricingCard key={index} {...pkg} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI & Custom Startup Development Section */}
+      <section className="py-20 bg-dark/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">AI & Advanced Custom Solutions</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto font-light">
+              From building complex AI-driven startups to automating your business with custom LLM integrations. 
+              We turn visionary ideas into high-performance products.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pt-8">
+            {customPackages.map((pkg, index) => (
               <PricingCard key={index} {...pkg} />
             ))}
           </div>
@@ -296,6 +358,15 @@ const Pricing = () => {
               <h3 className="text-xl font-heading font-bold text-primary mb-6 ml-4 tracking-wider uppercase">SEO FAQs</h3>
               <div className="glass-card divide-y divide-white/5">
                 {faqData.seo.map((faq, idx) => (
+                  <FAQAccordion key={idx} question={faq.q} answer={faq.a} />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-heading font-bold text-primary mb-6 ml-4 tracking-wider uppercase">AI & Custom Startup FAQs</h3>
+              <div className="glass-card divide-y divide-white/5">
+                {faqData.custom.map((faq, idx) => (
                   <FAQAccordion key={idx} question={faq.q} answer={faq.a} />
                 ))}
               </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
+import { CONTACT_INFO } from '../data/constants';
 
 const HeroSection = () => {
   const containerVariants = {
@@ -27,10 +28,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-20" />
       <div className="absolute top-1/4 -left-24 w-96 h-96 bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 -right-24 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Side Content */}
           <motion.div
             variants={containerVariants}
@@ -45,19 +46,19 @@ const HeroSection = () => {
               </span>
               Available for Freelance Work ✦
             </motion.div>
-            
+
             <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-4">
               Hi, I'm <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">Mohammad Ahmad</span>
             </motion.h1>
-            
+
             <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl font-heading text-primary font-medium mb-6">
               Full-Stack Developer & SEO Specialist
             </motion.h2>
-            
+
             <motion.p variants={itemVariants} className="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-xl mb-10">
               I craft high-performance web & mobile applications using React & Firebase — then drive real organic traffic to them through proven SEO strategies.
             </motion.p>
-            
+
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link to="/portfolio" className="btn-primary flex items-center justify-center gap-2 group">
                 View My Work
@@ -69,17 +70,20 @@ const HeroSection = () => {
                 Get a Quote
               </Link>
             </motion.div>
-            
+
             <motion.div variants={itemVariants} className="flex items-center gap-6">
               {[
-                { icon: <FaWhatsapp size={22} />, link: "https://wa.me/XXXXXXXXXX", label: "WhatsApp" },
-                { icon: <FiMail size={22} />, link: "mailto:mohammad@example.com", label: "Email" },
-                { icon: <FiLinkedin size={22} />, link: "#", label: "LinkedIn" },
-                { icon: <FiGithub size={22} />, link: "#", label: "GitHub" },
+                { icon: <FaWhatsapp size={22} />, link: CONTACT_INFO.whatsapp, label: "WhatsApp" },
+                { icon: <FiMail size={22} />, link: `mailto:${CONTACT_INFO.email}`, label: "Email" },
+                { icon: <FiLinkedin size={22} />, link: CONTACT_INFO.linkedin, label: "LinkedIn" },
+                { icon: <FiGithub size={22} />, link: CONTACT_INFO.github, label: "GitHub" },
+                { icon: <FaXTwitter size={20} />, link: CONTACT_INFO.twitterLink, label: "Twitter" },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary transition-colors duration-300"
                   aria-label={social.label}
                 >
@@ -110,7 +114,7 @@ const HeroSection = () => {
                 }}
                 className="w-80 h-80 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-3xl border border-white/10 backdrop-blur-3xl flex items-center justify-center shadow-2xl relative"
               >
-                 <pre className="text-primary/70 font-mono text-sm leading-relaxed p-6">
+                <pre className="text-primary/70 font-mono text-sm leading-relaxed p-6">
                   <code>{`const developer = {
   name: "Mohammad Ahmad",
   role: "Full-Stack & SEO",
@@ -120,7 +124,7 @@ const HeroSection = () => {
 };`}</code>
                 </pre>
               </motion.div>
-              
+
               {/* Floating Badges */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
@@ -164,7 +168,7 @@ const HeroSection = () => {
                 </div>
               </motion.div>
             </div>
-            
+
             {/* Glow behind the shape */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 blur-[150px] -z-10 rounded-full" />
           </motion.div>
