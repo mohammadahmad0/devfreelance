@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const ProjectCard = ({ title, description, tags, delay, image }) => {
+const ProjectCard = ({ title, description, tags, delay, image, link }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -44,9 +44,14 @@ const ProjectCard = ({ title, description, tags, delay, image }) => {
         </div>
         
         <div className="flex gap-4 w-full">
-          <Link to="#" className="btn-primary flex-grow text-sm uppercase tracking-widest font-bold py-3 text-center transition-all bg-gradient-to-r group-hover:from-primary group-hover:to-secondary">
+          <a 
+            href={link ? (link.startsWith('http') ? link : `https://${link}`) : '#'} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-primary flex-grow text-sm uppercase tracking-widest font-bold py-3 text-center transition-all bg-gradient-to-r group-hover:from-primary group-hover:to-secondary"
+          >
             Live Site →
-          </Link>
+          </a>
           <Link to="/portfolio" className="btn-outline flex-grow text-sm uppercase tracking-widest font-bold py-3 border border-white/10 group-hover:border-primary/30">
             Details →
           </Link>

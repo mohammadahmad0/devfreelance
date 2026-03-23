@@ -13,6 +13,11 @@ import WhyChooseMe from '../components/WhyChooseMe';
 import TestimonialCard from '../components/TestimonialCard';
 import CTABanner from '../components/CTABanner';
 
+// Project Images
+import solareonImg from '../assets/projects/solareon.png';
+import corebuildImg from '../assets/projects/corebuild.png';
+import explorealgoImg from '../assets/projects/explorealgo.png';
+
 const Home = () => {
   const services = [
     {
@@ -40,25 +45,28 @@ const Home = () => {
 
   const projects = [
     {
-      title: "SolarOne Energy",
+      title: "Solareon Energy",
       description: "Comprehensive solar energy company website with interactive service pages and Lead Gen forms, built for visibility and conversion.",
       tags: ["React", "Firebase", "Tailwind CSS"],
       delay: 0.1,
-      image: null // Placeholder handled in component
+      image: solareonImg,
+      link: "www.solareonenergy.com"
     },
     {
       title: "CoreBuild Africa",
       description: "Construction giant website with a detailed project portfolio, dynamic galleries, and high-performance frontend optimization.",
       tags: ["React", "Firebase", "Framer Motion"],
       delay: 0.2,
-      image: null
+      image: corebuildImg,
+      link: "www.corebuildafrica.com"
     },
     {
       title: "Explore Algo",
       description: "High-performance algorithmic trading platform with real-time analytics, user dashboards, and secure Firebase authentication.",
       tags: ["React", "Firebase Auth", "Firestore"],
       delay: 0.3,
-      image: null
+      image: explorealgoImg,
+      link: "www.explorealgo.com"
     }
   ];
 
