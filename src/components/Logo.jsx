@@ -1,108 +1,134 @@
 import React from 'react';
 
-const Logo = () => {
-  return (
-    <div className="flex items-center space-x-3 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
-      <svg
-        width="220"
-        height="64"
-        viewBox="0 0 220 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="filter drop-shadow-lg"
-      >
-        {/* Definitions */}
-        <defs>
-          <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
-          
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="1.5" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
+const Logo = () => (
+  <svg
+    width="44"
+    height="48"
+    viewBox="0 0 200 220"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]"
+  >
+    <defs>
+      <linearGradient id="owlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3B82F6" />
+        <stop offset="100%" stopColor="#06B6D4" />
+      </linearGradient>
+      
+      <filter id="eyeGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
 
-          <pattern id="grid" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(59, 130, 246, 0.05)" strokeWidth="0.5" />
-          </pattern>
-        </defs>
+      <style>
+        {`
+          @keyframes nodePulse {
+            0% { filter: drop-shadow(0 0 2px #06b6d4); opacity: 0.8; }
+            50% { filter: drop-shadow(0 0 8px #3b82f6); opacity: 1; transform: scale(1.1); }
+            100% { filter: drop-shadow(0 0 2px #06b6d4); opacity: 0.8; }
+          }
+          .chest-node {
+            animation: nodePulse 2s infinite ease-in-out;
+            transform-origin: center;
+          }
+        `}
+      </style>
+    </defs>
 
-        {/* Card Background */}
-        <rect width="216" height="60" x="2" y="2" rx="12" fill="#0a0f1e" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="1" />
-        <rect width="216" height="60" x="2" y="2" rx="12" fill="url(#grid)" />
+    {/* EAR TUFTS */}
+    <path d="M70 45 L85 25 L88 40 L95 28 L98 45 Z" fill="url(#owlGradient)" />
+    <path d="M130 45 L115 25 L112 40 L105 28 L102 45 Z" fill="url(#owlGradient)" />
 
-        {/* Corner Bracket Accents */}
-        {/* Top-left */}
-        <path d="M 10 8 L 6 8 L 6 12" stroke="url(#primaryGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        {/* Top-right */}
-        <path d="M 210 8 L 214 8 L 214 12" stroke="url(#primaryGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        {/* Bottom-left */}
-        <path d="M 10 56 L 6 56 L 6 52" stroke="url(#primaryGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        {/* Bottom-right */}
-        <path d="M 210 56 L 214 56 L 214 52" stroke="url(#primaryGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    {/* HEAD */}
+    <circle cx="100" cy="75" r="50" stroke="url(#owlGradient)" strokeWidth="2" fill="rgba(59, 130, 246, 0.05)" />
+    
+    {/* FACIAL DISC */}
+    <ellipse cx="100" cy="80" rx="40" ry="30" stroke="url(#owlGradient)" strokeWidth="0.5" opacity="0.3" />
 
-        {/* Hexagon Frame */}
-        <path
-          d="M 32 15 L 42 21 L 42 33 L 32 39 L 22 33 L 22 21 Z"
-          stroke="url(#primaryGradient)"
-          strokeWidth="1.5"
-          fill="rgba(59, 130, 246, 0.05)"
-          filter="url(#glow)"
-        />
+    {/* EYES */}
+    {/* Left Eye */}
+    <g transform="translate(75, 75)">
+      <circle cx="0" cy="0" r="15" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      <circle cx="0" cy="0" r="10" fill="url(#owlGradient)" opacity="0.8" filter="url(#eyeGlow)" />
+      {/* Circuit Spokes */}
+      <line x1="15" y1="0" x2="20" y2="0" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="-15" y1="0" x2="-20" y2="0" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="0" y1="15" x2="0" y2="20" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="0" y1="-15" x2="0" y2="-20" stroke="url(#owlGradient)" strokeWidth="1" />
+      {/* Pupil & Highlight */}
+      <circle cx="0" cy="0" r="4" fill="#0A0F1E" />
+      <circle cx="2" cy="-2" r="1.5" fill="white" />
+    </g>
 
-        {/* code symbol </> */}
-        <text
-          x="32"
-          y="31"
-          textAnchor="middle"
-          fill="url(#primaryGradient)"
-          fontSize="10"
-          fontWeight="bold"
-          fontFamily="monospace"
-          filter="url(#glow)"
-        >
-          &lt;/&gt;
-        </text>
+    {/* Right Eye */}
+    <g transform="translate(125, 75)">
+      <circle cx="0" cy="0" r="15" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      <circle cx="0" cy="0" r="10" fill="url(#owlGradient)" opacity="0.8" filter="url(#eyeGlow)" />
+      {/* Circuit Spokes */}
+      <line x1="15" y1="0" x2="20" y2="0" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="-15" y1="0" x2="-20" y2="0" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="0" y1="15" x2="0" y2="20" stroke="url(#owlGradient)" strokeWidth="1" />
+      <line x1="0" y1="-15" x2="0" y2="-20" stroke="url(#owlGradient)" strokeWidth="1" />
+      {/* Pupil & Highlight */}
+      <circle cx="0" cy="0" r="4" fill="#0A0F1E" />
+      <circle cx="2" cy="-2" r="1.5" fill="white" />
+    </g>
 
-        {/* Divider line and dot */}
-        <line x1="22" y1="46" x2="42" y2="46" stroke="url(#primaryGradient)" strokeWidth="1" strokeDasharray="1 2" opacity="0.6" />
-        <circle cx="32" cy="46" r="1.5" fill="url(#primaryGradient)" />
+    {/* BEAK */}
+    <path d="M100 85 L96 92 L100 98 L104 92 Z" fill="url(#owlGradient)" />
 
-        {/* Full Name */}
-        <text
-          x="58"
-          y="30"
-          fill="url(#primaryGradient)"
-          fontSize="14"
-          fontWeight="900"
-          fontFamily="'Courier New', monospace"
-          letterSpacing="1"
-          style={{ textTransform: 'uppercase' }}
-          filter="url(#glow)"
-        >
-          MOHAMMAD AHMAD
-        </text>
+    {/* HEAD CIRCUIT */}
+    <path d="M45 65 L35 75" stroke="url(#owlGradient)" strokeWidth="1" />
+    <circle cx="35" cy="75" r="2" fill="url(#owlGradient)" />
+    <path d="M155 65 L165 75" stroke="url(#owlGradient)" strokeWidth="1" />
+    <circle cx="165" cy="75" r="2" fill="url(#owlGradient)" />
 
-        {/* Tagline */}
-        <text
-          x="58"
-          y="46"
-          fill="#06b6d4"
-          fontSize="7"
-          fontWeight="bold"
-          fontFamily="'Courier New', monospace"
-          letterSpacing="1.5"
-          opacity="0.9"
-        >
-          FULL-STACK DEV · SEO
-        </text>
+    {/* BODY */}
+    <ellipse cx="100" cy="155" rx="45" ry="60" stroke="url(#owlGradient)" strokeWidth="2" fill="rgba(6, 182, 212, 0.03)" />
 
-        {/* Blinking Cursor Detail */}
-        <rect x="188" y="20" width="4" height="12" fill="url(#primaryGradient)" className="animate-pulse" rx="1" />
-      </svg>
-    </div>
-  );
-};
+    {/* FEATHER LINES */}
+    <path d="M75 140 Q100 130 125 140" stroke="url(#owlGradient)" strokeWidth="1" opacity="0.6" />
+    <path d="M70 155 Q100 145 130 155" stroke="url(#owlGradient)" strokeWidth="1" opacity="0.4" />
+    <path d="M75 170 Q100 160 125 170" stroke="url(#owlGradient)" strokeWidth="1" opacity="0.2" />
+    <path d="M85 185 Q100 175 115 185" stroke="url(#owlGradient)" strokeWidth="1" opacity="0.1" />
+
+    {/* CIRCUIT CHEST */}
+    <g transform="translate(100, 155)">
+      {/* H-shape circuit */}
+      <line x1="-15" y1="0" x2="15" y2="0" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      <line x1="-15" y1="-10" x2="-15" y2="10" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      <line x1="15" y1="-10" x2="15" y2="10" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      {/* Branch to node */}
+      <line x1="0" y1="0" x2="0" y2="25" stroke="url(#owlGradient)" strokeWidth="1.5" />
+      {/* Glowing Dot Node */}
+      <circle cx="0" cy="25" r="4" fill="url(#owlGradient)" className="chest-node" filter="url(#eyeGlow)" />
+    </g>
+
+    {/* WINGS */}
+    <path d="M55 130 Q30 130 25 170 Q30 200 65 180" stroke="url(#owlGradient)" strokeWidth="1.5" fill="rgba(59, 130, 246, 0.05)" />
+    <path d="M145 130 Q170 130 175 170 Q170 200 135 180" stroke="url(#owlGradient)" strokeWidth="1.5" fill="rgba(6, 182, 212, 0.05)" />
+
+    {/* FEET/TALONS */}
+    <g stroke="url(#owlGradient)" strokeWidth="1.5" strokeLinecap="round">
+      <line x1="85" y1="210" x2="80" y2="218" />
+      <line x1="85" y1="210" x2="85" y2="219" />
+      <line x1="85" y1="210" x2="90" y2="218" />
+      
+      <line x1="115" y1="210" x2="110" y2="218" />
+      <line x1="115" y1="210" x2="115" y2="219" />
+      <line x1="115" y1="210" x2="120" y2="218" />
+    </g>
+
+    {/* FLOATING NODES */}
+    <g opacity="0.5">
+      <circle cx="30" cy="110" r="2" fill="#3B82F6" />
+      <line x1="30" y1="110" x2="20" y2="100" stroke="#3B82F6" strokeWidth="0.5" />
+      <circle cx="170" cy="110" r="2" fill="#06B6D4" />
+      <line x1="170" y1="110" x2="180" y2="100" stroke="#06B6D4" strokeWidth="0.5" />
+      <circle cx="180" cy="150" r="1.5" fill="#3B82F6" />
+      <circle cx="20" cy="150" r="1.5" fill="#06B6D4" />
+    </g>
+  </svg>
+);
 
 export default Logo;
