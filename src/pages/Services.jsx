@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services | Web & App Development & SEO | DEVFREELANCE</title>
+        <title>Services | Web & App Development & SEO | MOHAMMAD AHMAD</title>
         <meta name="description" content="Custom web development, mobile apps, and expert SEO strategy to help your business thrive online." />
       </Helmet>
       

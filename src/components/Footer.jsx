@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT_INFO } from '../data/constants';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -9,8 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Bio */}
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              DEVFREELANCE
+            <Link to="/" className="flex items-center">
+              <Logo />
             </Link>
             <p className="mt-4 text-gray-400 leading-relaxed font-light">
               High-end web development and SEO services. Build your presence with premium tech and results-driven strategies.
@@ -71,8 +72,8 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-xs text-center font-light">
-            © {new Date().getFullYear()} DEVFREELANCE. Designed for high performance and premium experiences.
+          <p className="text-gray-500 text-xs text-center font-light uppercase tracking-widest">
+            © {new Date().getFullYear()} MOHAMMAD AHMAD. Designed for high performance and premium experiences.
           </p>
           <div className="flex gap-6">
             <Link to="#" className="text-gray-500 hover:text-white transition-colors text-xs font-light">

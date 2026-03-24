@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About | Freelance Web & App Developer & SEO Specialist | DEVFREELANCE</title>
+        <title>About | Freelance Web & App Developer & SEO Specialist | MOHAMMAD AHMAD</title>
         <meta name="description" content="A passionate software engineer specializing in scalable applications and data-driven SEO techniques." />
       </Helmet>
       
